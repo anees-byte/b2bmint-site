@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Mint — SaaS SEO That Builds Pipeline</title>
+    <meta name="description" content="Semantic SEO, AI visibility, and pipeline generation engineered into one system for B2B SaaS companies. We build pipeline, not traffic.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8faf9;
+            --bg-tertiary: #f0fdf4;
+            --bg-card: #ffffff;
+            --bg-dark-section: #052e16;
+            --bg-dark-card: #0a3d1f;
+            --accent: #16a34a;
+            --accent-light: #22c55e;
+            --accent-hover: #15803d;
+            --accent-glow: rgba(22, 163, 74, 0.08);
+            --accent-glow-strong: rgba(22, 163, 74, 0.15);
+            --accent-bg: #dcfce7;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --text-on-dark: #ffffff;
+            --text-on-dark-secondary: #a7f3d0;
+            --border: #e2e8f0;
+            --border-accent: rgba(22, 163, 74, 0.2);
+            --red-accent: #dc2626;
+            --red-bg: #fef2f2;
+            --red-border: rgba(220, 38, 38, 0.15);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-accent: 0 4px 20px rgba(22, 163, 74, 0.15);
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--text-primary); line-height: 1.2; }
+        h1 { font-size: clamp(40px, 5vw, 64px); font-weight: 700; }
+        h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 600; }
+        h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 500; }
+
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 16px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: var(--shadow-accent);
+        }
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(22, 163, 74, 0.25);
+            color: #fff;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .btn-primary:hover::after { opacity: 1; }
+
+        .btn-secondary {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--accent);
+            padding: 14px 4px;
+        }
+        .btn-ghost:hover { color: var(--accent-hover); }
+        .btn-ghost svg { transition: transform 0.25s; }
+        .btn-ghost:hover svg { transform: translateX(4px); }
+
+        .btn-dark {
+            background: var(--text-primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+        }
+        .btn-dark:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+            color: #fff;
+        }
+
+        .section { padding: 120px 0; position: relative; }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding: 6px 16px;
+            background: var(--accent-bg);
+            border: 1px solid var(--border-accent);
+            border-radius: 100px;
+        }
+        .section-label::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+        /* Stagger children */
+        .stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
+        .stagger-children .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .stagger-children .reveal:nth-child(3) { transition-delay: 0.2s; }
+        .stagger-children .reveal:nth-child(4) { transition-delay: 0.3s; }
+        .stagger-children .reveal:nth-child(5) { transition-delay: 0.4s; }
+        .stagger-children .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+        /* Parallax */
+        .parallax-slow { transition: transform 0.1s linear; }
+
+        /* ===== ANIMATED ICONS ===== */
+        .anim-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .anim-icon svg {
+            overflow: visible;
+        }
+        .anim-icon .icon-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .visible .anim-icon .icon-path,
+        .anim-icon.animated .icon-path {
+            stroke-dashoffset: 0;
+        }
+        .anim-icon .icon-circle {
+            transform: scale(0);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+        }
+        .visible .anim-icon .icon-circle,
+        .anim-icon.animated .icon-circle {
+            transform: scale(1);
+        }
+
+        /* Bounce on hover */
+        .icon-hover-bounce:hover svg {
+            animation: iconBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes iconBounce {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Pulse ring animation */
+        .icon-pulse-ring {
+            position: relative;
+        }
+        .icon-pulse-ring::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            border: 2px solid var(--accent);
+            opacity: 0;
+            animation: pulseRing 2s ease-out infinite;
+        }
+        @keyframes pulseRing {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.4); }
+        }
+
+        /* Spinning icon */
+        .icon-spin svg { animation: iconSpin 8s linear infinite; }
+        @keyframes iconSpin { to { transform: rotate(360deg); } }
+
+        /* Float animation */
+        .icon-float { animation: iconFloat 3s ease-in-out infinite; }
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ===== 1. NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+        }
+        .navbar.scrolled {
+            border-bottom-color: var(--border);
+            padding: 12px 0;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--text-primary);
+        }
+        .nav-logo-icon {
+            width: 36px; height: 36px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: 18px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta .btn { padding: 10px 22px; font-size: 14px; }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .mobile-toggle span {
+            display: block;
+            width: 24px; height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-primary);
+            z-index: 999;
+            padding: 100px 24px 40px;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a {
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* ===== 2. HERO ===== */
+        .hero {
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+        }
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(22, 163, 74, 0.06) 1px, transparent 0);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+        .hero-gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        .hero-gradient-orb.orb-1 {
+            width: 500px; height: 500px;
+            background: var(--accent-bg);
+            top: -150px; right: -100px;
+        }
+        .hero-gradient-orb.orb-2 {
+            width: 300px; height: 300px;
+            background: rgba(22, 163, 74, 0.08);
+            bottom: -50px; left: -50px;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--accent-bg);
+            border: 1px solid var(--border-accent);
+            border-radius: 100px;
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-family: var(--font-heading);
+        }
+        .hero-badge .pulse {
+            width: 8px; height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+        }
+
+        .hero h1 { margin-bottom: 24px; letter-spacing: -1.5px; }
+        .hero h1 .line-accent {
+            background: linear-gradient(135deg, var(--accent), #059669, var(--accent-light), var(--accent));
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerText 6s ease infinite;
+        }
+        @keyframes shimmerText {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-sub {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-proof {
+            display: flex;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+        .hero-proof-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0 28px;
+            border-right: 1.5px solid var(--border);
+        }
+        .hero-proof-item:first-child { padding-left: 0; }
+        .hero-proof-item:last-child { border-right: none; padding-right: 0; }
+        .hero-proof-number {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+        .hero-proof-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+
+        /* ASTPE Visual — Light Version */
+        .astpe-visual {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-bottom: 120px;
+        }
+
+        .astpe-engine {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px; height: 180px;
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border-radius: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 2;
+            box-shadow: 0 0 0 12px rgba(15, 23, 42, 0.06), 0 0 0 24px rgba(15, 23, 42, 0.03), var(--shadow-lg);
+            animation: enginePulse 4s ease-in-out infinite;
+        }
+        .astpe-engine::before {
+            content: '';
+            position: absolute;
+            inset: -22px;
+            border-radius: 50px;
+            border: 2px dashed rgba(15, 23, 42, 0.15);
+            animation: engineSpin 20s linear infinite;
+        }
+        @keyframes engineSpin {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes enginePulse {
+            0%, 100% { box-shadow: 0 0 0 12px rgba(15,23,42,0.06), 0 0 0 24px rgba(15,23,42,0.03), var(--shadow-lg); }
+            50% { box-shadow: 0 0 0 16px rgba(15,23,42,0.08), 0 0 0 32px rgba(15,23,42,0.04), 0 20px 60px rgba(15,23,42,0.12); }
+        }
+        .engine-label {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 3px;
+        }
+        .engine-sublabel {
+            font-size: 12px;
+            color: rgba(255,255,255,0.65);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .platform-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 440px; height: 440px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 2px dashed rgba(15, 23, 42, 0.12);
+            z-index: 1;
+        }
+
+        .platform-node {
+            position: absolute;
+            width: 78px; height: 78px;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.06);
+            z-index: 2;
+        }
+        .platform-node:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg), 0 0 0 4px var(--accent-glow);
+            transform: scale(1.12);
+        }
+        .platform-node.node-google:hover { border-color: #4285F4; box-shadow: var(--shadow-lg), 0 0 16px rgba(66,133,244,0.2); }
+        .platform-node.node-chatgpt:hover { border-color: #10a37f; box-shadow: var(--shadow-lg), 0 0 16px rgba(16,163,127,0.2); }
+        .platform-node.node-perplexity:hover { border-color: #20b2aa; box-shadow: var(--shadow-lg), 0 0 16px rgba(32,178,170,0.2); }
+        .platform-node.node-claude:hover { border-color: #cc785c; box-shadow: var(--shadow-lg), 0 0 16px rgba(204,120,92,0.2); }
+        .platform-node.node-gemini:hover { border-color: #8E75B2; box-shadow: var(--shadow-lg), 0 0 16px rgba(142,117,178,0.2); }
+        .platform-node.node-googleai:hover { border-color: #4285F4; box-shadow: var(--shadow-lg), 0 0 16px rgba(66,133,244,0.2); }
+        .platform-node svg, .platform-node img { width: 32px; height: 32px; border-radius: 6px; }
+        .platform-node img { object-fit: contain; }
+
+        .platform-node:nth-child(1) { top: -34px; left: 50%; transform: translateX(-50%); animation: nodeFloat 4s ease-in-out infinite; }
+        .platform-node:nth-child(2) { top: 12%; right: -34px; animation: nodeFloat 4s ease-in-out 0.5s infinite; }
+        .platform-node:nth-child(3) { bottom: 12%; right: -34px; animation: nodeFloat 4s ease-in-out 1s infinite; }
+        .platform-node:nth-child(4) { bottom: -34px; left: 50%; transform: translateX(-50%); animation: nodeFloat 4s ease-in-out 1.5s infinite; }
+        .platform-node:nth-child(5) { bottom: 12%; left: -34px; animation: nodeFloat 4s ease-in-out 2s infinite; }
+        .platform-node:nth-child(6) { top: 12%; left: -34px; animation: nodeFloat 4s ease-in-out 2.5s infinite; }
+
+        @keyframes nodeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .platform-node:nth-child(1):hover, .platform-node:nth-child(4):hover { transform: translateX(-50%) scale(1.08); }
+
+        .connection-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+        .conn-line {
+            stroke: #0f172a;
+            stroke-width: 2;
+            opacity: 0.35;
+            stroke-dasharray: 8 5;
+            animation: dashFlow 2s linear infinite;
+        }
+        @keyframes dashFlow { to { stroke-dashoffset: -26; } }
+
+        .output-ring { display: none; }
+
+        .astpe-arrow-down {
+            position: absolute;
+            bottom: 52px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: arrowBounce 2s ease-in-out infinite;
+        }
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        .astpe-metrics-row {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            z-index: 4;
+        }
+        .astpe-metric-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            opacity: 0;
+            animation: metricFadeUp 0.5s ease forwards;
+        }
+        .astpe-metric-item:nth-child(1) { animation-delay: 0.3s; }
+        .astpe-metric-item:nth-child(2) { animation-delay: 0.5s; }
+        .astpe-metric-item:nth-child(3) { animation-delay: 0.7s; }
+        .astpe-metric-item:nth-child(4) { animation-delay: 0.9s; }
+        @keyframes metricFadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .astpe-metric-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .astpe-metric-icon svg { width: 18px; height: 18px; }
+        .astpe-metric-icon.icon-demos { background: #ede9fe; color: #7c3aed; }
+        .astpe-metric-icon.icon-sqls { background: #dbeafe; color: #2563eb; }
+        .astpe-metric-icon.icon-trials { background: #dcfce7; color: #16a34a; }
+        .astpe-metric-icon.icon-revenue { background: #fef3c7; color: #d97706; }
+        .astpe-metric-text {
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ===== 3. LOGO BAR ===== */
+        .logo-bar {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-primary);
+        }
+        .logo-bar-label {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+        .logo-bar-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .client-logo {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--text-muted);
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+        .client-logo:hover { opacity: 0.8; color: var(--text-secondary); }
+
+        /* ===== 4. PROBLEMS ===== */
+        .problems { background: var(--bg-secondary); }
+        .problems-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .problem-card {
+            padding: 36px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 0%;
+            background: linear-gradient(180deg, var(--accent), rgba(22,163,74,0.3));
+            transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 0 2px 2px 0;
+        }
+        .problem-card.visible::before { height: 100%; }
+        .problem-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .problem-icon {
+            width: 52px; height: 52px;
+            background: var(--accent-bg);
+            border: 1px solid var(--border-accent);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .problem-icon svg { width: 24px; height: 24px; color: var(--accent); }
+        .problem-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .problem-card p { font-size: 16px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ===== 5. FRAMEWORK ===== */
+        .framework-section { background: var(--bg-dark-section); color: var(--text-on-dark); overflow: hidden; position: relative; }
+        .framework-section .section-label { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.25); }
+        .framework-section h2 { color: var(--text-on-dark); }
+        .framework-section p { color: var(--text-on-dark-secondary); }
+        .framework-header { text-align: center; max-width: 700px; margin: 0 auto 72px; }
+
+        .framework-bg-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(ellipse, rgba(22,163,74,0.12), transparent 70%);
+            pointer-events: none;
+        }
+
+        .framework-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+        .framework-step {
+            background: var(--bg-dark-card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 36px 24px;
+            text-align: center;
+            position: relative;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .framework-step:hover {
+            border-color: rgba(34,197,94,0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(22,163,74,0.1);
+        }
+        .framework-step h3 { color: var(--text-on-dark); font-size: 20px; margin-bottom: 12px; }
+        .framework-step p { color: var(--text-on-dark-secondary); font-size: 15px; line-height: 1.6; }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px; height: 44px;
+            background: rgba(22, 163, 74, 0.15);
+            border: 1.5px solid rgba(22, 163, 74, 0.3);
+            border-radius: 14px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--accent-light);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        .framework-step:hover .step-number {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        /* ===== 6. CASE STUDY ===== */
+        .case-study-featured { background: var(--bg-secondary); }
+        .case-study-card-featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 60px;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study-card-featured::after {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, var(--accent-glow), transparent);
+            pointer-events: none;
+        }
+        .cs-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .cs-metric {
+            padding: 20px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+        .cs-metric:hover { transform: scale(1.03); box-shadow: var(--shadow-md); }
+        .cs-metric-value {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .cs-metric-label { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+        .cs-graph {
+            width: 100%;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+        }
+        .cs-graph-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .graph-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 200px;
+        }
+        .graph-bar {
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent), rgba(22,163,74,0.3));
+            border-radius: 6px 6px 0 0;
+            min-height: 8px;
+            transition: height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .graph-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        /* ===== 7. HOW IT WORKS ===== */
+        .hiw-header { text-align: center; max-width: 700px; margin: 0 auto 72px; }
+
+        .hiw-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+        .hiw-steps::before {
+            content: '';
+            position: absolute;
+            top: 48px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
+            opacity: 0.2;
+        }
+        .hiw-step { text-align: center; position: relative; }
+        .hiw-step-icon {
+            width: 96px; height: 96px;
+            margin: 0 auto 24px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hiw-step:hover .hiw-step-icon {
+            border-color: var(--accent);
+            background: var(--accent-bg);
+            box-shadow: var(--shadow-accent);
+            transform: translateY(-4px);
+        }
+        .hiw-step-icon svg { width: 36px; height: 36px; color: var(--accent); }
+        .hiw-step h3 { font-size: 18px; margin-bottom: 8px; }
+        .hiw-step p { font-size: 15px; color: var(--text-secondary); }
+
+        /* ===== 8. SERVICES ===== */
+        .services { background: var(--bg-secondary); }
+        .services-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+        .service-card {
+            padding: 36px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg), 0 0 0 4px var(--accent-glow);
+        }
+        .service-icon {
+            width: 56px; height: 56px;
+            background: var(--accent-bg);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.35s;
+        }
+        .service-card:hover .service-icon {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        .service-icon svg { width: 26px; height: 26px; color: var(--accent); transition: color 0.35s; }
+        .service-card:hover .service-icon svg { color: #fff; }
+        .service-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .service-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ===== 9. RESULTS ===== */
+        .results-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+
+        .results-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+        .result-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-accent);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.35s;
+        }
+        .result-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .result-card-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+            margin-bottom: 12px;
+        }
+        .result-card-value {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        .result-card-desc { font-size: 15px; color: var(--text-secondary); }
+
+        .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .testimonial-card {
+            padding: 36px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+        .testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .testimonial-stars { display: flex; gap: 4px; margin-bottom: 16px; }
+        .testimonial-stars svg { width: 18px; height: 18px; color: #f59e0b; fill: #f59e0b; }
+        .testimonial-text { font-size: 16px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-avatar {
+            width: 44px; height: 44px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+        }
+        .testimonial-name { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: var(--text-primary); }
+        .testimonial-role { font-size: 13px; color: var(--text-muted); }
+
+        /* ===== 10. FIT SECTION ===== */
+        .fit-section { background: var(--bg-secondary); }
+        .fit-header { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+        .fit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+        .fit-card { padding: 40px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-primary); box-shadow: var(--shadow-sm); }
+        .fit-card.good { border-color: var(--border-accent); background: linear-gradient(135deg, rgba(22,163,74,0.03), var(--bg-primary)); }
+        .fit-card.bad { border-color: var(--red-border); background: linear-gradient(135deg, rgba(220,38,38,0.02), var(--bg-primary)); }
+
+        .fit-card-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .fit-card.good .fit-card-title { color: var(--accent); }
+        .fit-card.bad .fit-card-title { color: var(--red-accent); }
+        .fit-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .fit-list li { display: flex; gap: 12px; font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+        .fit-list li svg { flex-shrink: 0; width: 22px; height: 22px; margin-top: 2px; }
+        .fit-card.good .fit-list li svg { color: var(--accent); }
+        .fit-card.bad .fit-list li svg { color: var(--red-accent); }
+
+        /* ===== 11. FOUNDER ===== */
+        .founder-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 48px;
+            align-items: center;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 60px;
+            box-shadow: var(--shadow-md);
+        }
+        .founder-image {
+            width: 200px; height: 200px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--accent-bg), var(--bg-tertiary));
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .founder-content h2 { font-size: 28px; margin-bottom: 8px; }
+        .founder-title { font-size: 16px; color: var(--accent); font-family: var(--font-heading); font-weight: 500; margin-bottom: 20px; }
+        .founder-content p { font-size: 17px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+
+        /* ===== 12. FAQ ===== */
+        .faq { background: var(--bg-secondary); }
+        .faq-header { text-align: center; max-width: 600px; margin: 0 auto 64px; }
+        .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+        .faq-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-item.active { border-color: var(--accent); box-shadow: var(--shadow-md), 0 0 0 4px var(--accent-glow); }
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 28px;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 17px;
+            color: var(--text-primary);
+            transition: color 0.2s;
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-icon {
+            width: 32px; height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            transition: all 0.3s;
+        }
+        .faq-item.active .faq-icon { background: var(--accent); transform: rotate(45deg); }
+        .faq-icon svg { width: 16px; height: 16px; color: var(--accent); transition: color 0.3s; }
+        .faq-item.active .faq-icon svg { color: #fff; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-answer-inner { padding: 0 28px 22px; font-size: 16px; color: var(--text-secondary); line-height: 1.7; }
+
+        /* ===== 13. FINAL CTA ===== */
+        .final-cta {
+            text-align: center;
+            background: var(--bg-dark-section);
+            color: var(--text-on-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta h2 { color: var(--text-on-dark); }
+        .final-cta > .container > p { color: var(--text-on-dark-secondary); max-width: 600px; margin: 0 auto 16px; }
+        .final-cta .section-label { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.25); }
+
+        .cta-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 400px;
+            background: radial-gradient(ellipse, rgba(22,163,74,0.15), transparent 70%);
+            pointer-events: none;
+        }
+        .cta-scarcity {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+        }
+        .cta-scarcity::before { content: ''; width: 8px; height: 8px; background: var(--accent-light); border-radius: 50%; animation: pulse 2s ease infinite; }
+        .final-cta .hero-ctas { justify-content: center; position: relative; }
+        .final-cta .btn-primary { background: #fff; color: var(--accent-hover); box-shadow: 0 4px 20px rgba(255,255,255,0.15); }
+        .final-cta .btn-primary:hover { background: #f0fdf4; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.2); color: var(--accent-hover); }
+        .final-cta .btn-ghost { color: var(--text-on-dark-secondary); }
+        .final-cta .btn-ghost:hover { color: #fff; }
+
+        /* ===== 14. FOOTER ===== */
+        .footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-primary);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+        .footer-brand p { font-size: 15px; color: var(--text-secondary); margin-top: 16px; line-height: 1.6; }
+        .footer h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-bottom: 20px; font-weight: 600; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-links a { color: var(--text-secondary); font-size: 15px; }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-newsletter { margin-top: 24px; }
+        .newsletter-form { display: flex; gap: 8px; }
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 15px;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+        .newsletter-form input::placeholder { color: var(--text-muted); }
+        .newsletter-form button {
+            padding: 12px 20px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .newsletter-form button:hover { background: var(--accent-hover); }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            z-index: 10001;
+            transition: width 0.1s;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero .container { grid-template-columns: 1fr; }
+            .astpe-visual { display: none; }
+            .framework-steps { grid-template-columns: repeat(2, 1fr); }
+            .hiw-steps { grid-template-columns: repeat(2, 1fr); }
+            .hiw-steps::before { display: none; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .case-study-card-featured { grid-template-columns: 1fr; padding: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 80px 0; }
+            body { font-size: 16px; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .hero { padding: 120px 0 80px; }
+            .hero .container { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; align-items: flex-start; }
+            .astpe-visual { max-width: 400px; margin: 40px auto 0; margin-right: auto; }
+            .platform-ring { width: 320px; height: 320px; }
+            .platform-node { width: 60px; height: 60px; font-size: 8px; }
+            .platform-node svg, .platform-node img { width: 24px; height: 24px; }
+            .astpe-engine { width: 130px; height: 130px; border-radius: 28px; }
+            .engine-label { font-size: 17px; }
+            .engine-sublabel { font-size: 9px; }
+            .astpe-visual { margin-bottom: 50px; }
+            .astpe-metrics-row { gap: 16px; flex-wrap: wrap; }
+            .astpe-metric-item { padding: 8px 0; }
+            .astpe-arrow-down { bottom: 60px; }
+            .problems-grid { grid-template-columns: 1fr; }
+            .framework-steps { grid-template-columns: 1fr; }
+            .hiw-steps { grid-template-columns: 1fr; gap: 24px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .results-cards { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .fit-grid { grid-template-columns: 1fr; }
+            .founder-card { grid-template-columns: 1fr; text-align: center; padding: 36px; }
+            .founder-image { margin: 0 auto; width: 150px; height: 150px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .cs-metrics { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 32px; }
+            .hero-proof { flex-direction: column; gap: 16px; }
+            .hero-proof-item { padding: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+            .hero-proof-item:last-child { border-bottom: none; padding-bottom: 0; }
+            .logo-bar-grid { gap: 24px; }
+            .client-logo { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===== 1. NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">M</div>
+            B2B Mint
+        </a>
+        <ul class="nav-links">
+            <li><a href="#framework">Framework</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="#cta" class="btn btn-primary">Book a Strategy Call
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#framework" onclick="closeMobile()">Framework</a>
+    <a href="#results" onclick="closeMobile()">Results</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#faq" onclick="closeMobile()">FAQ</a>
+    <a href="#cta" class="btn btn-primary" onclick="closeMobile()" style="margin-top:16px;text-align:center;">Book a Strategy Call</a>
+</div>
+
+<!-- ===== 2. HERO ===== -->
+<section class="hero" id="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-gradient-orb orb-1"></div>
+    <div class="hero-gradient-orb orb-2"></div>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge reveal">
+                <span class="pulse"></span>
+                Now accepting Q2 clients
+            </div>
+            <h1 class="reveal" style="transition-delay:0.1s;">
+                SaaS SEO That Builds<br>
+                <span class="line-accent">Pipeline, Not Traffic</span>
+            </h1>
+            <p class="hero-sub reveal" style="transition-delay:0.2s;">
+                We engineer semantic authority, AI search visibility, and pipeline-driving content into one system. Your brand becomes the answer Google and AI recommend.
+            </p>
+            <div class="hero-ctas reveal" style="transition-delay:0.3s;">
+                <a href="#cta" class="btn btn-primary">
+                    Get a Free Consultation
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#results" class="btn btn-ghost">
+                    See Our Results
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="hero-proof reveal" style="transition-delay:0.4s;">
+                <div class="hero-proof-item">
+                    <span class="hero-proof-number" data-value="$6M+">$6M+</span>
+                    <span class="hero-proof-label">Pipeline generated</span>
+                </div>
+                <div class="hero-proof-item">
+                    <span class="hero-proof-number" data-value="312">312</span>
+                    <span class="hero-proof-label">Demos/month driven</span>
+                </div>
+                <div class="hero-proof-item">
+                    <span class="hero-proof-number" data-value="4,200+">4,200+</span>
+                    <span class="hero-proof-label">AI citations earned</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ASTPE Visual -->
+        <div class="astpe-visual reveal-right">
+            <div class="platform-ring">
+                <!-- Google -->
+                <div class="platform-node node-google icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" width="28" height="28">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                    Google
+                </div>
+                <!-- ChatGPT / OpenAI -->
+                <div class="platform-node node-chatgpt icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <path d="M22.28 9.37a5.99 5.99 0 00-.52-4.93 6.07 6.07 0 00-6.55-2.93A5.99 5.99 0 0010.7.06a6.07 6.07 0 00-5.8 4.27 5.99 5.99 0 00-4 2.9 6.07 6.07 0 00.75 7.11 5.99 5.99 0 00.52 4.93 6.07 6.07 0 006.55 2.93 5.99 5.99 0 004.5 1.45 6.07 6.07 0 005.8-4.27 5.99 5.99 0 004-2.9 6.07 6.07 0 00-.74-7.11z" fill="#10a37f"/>
+                        <path d="M10.16 19.87a4.5 4.5 0 01-2.9-1.04l.04-.02 4.82-2.78a.78.78 0 00.4-.68v-6.79l2.04 1.18a.07.07 0 01.04.06v5.62a4.52 4.52 0 01-4.44 4.45z" fill="#fff"/>
+                        <path d="M4.32 16.28a4.49 4.49 0 01-.54-3.02l.04.03 4.83 2.78a.79.79 0 00.79 0l5.89-3.4v2.35a.07.07 0 01-.03.06l-4.88 2.82a4.52 4.52 0 01-6.1-1.62z" fill="#fff"/>
+                        <path d="M3.28 8.12a4.49 4.49 0 012.36-1.98v5.73a.78.78 0 00.39.68l5.89 3.4-2.03 1.18a.07.07 0 01-.07 0l-4.88-2.82A4.52 4.52 0 013.28 8.12z" fill="#fff"/>
+                        <path d="M17.87 12.15l-5.89-3.4 2.04-1.18a.07.07 0 01.07 0l4.87 2.82a4.52 4.52 0 01-.7 8.12v-5.68a.78.78 0 00-.39-.68z" fill="#fff"/>
+                        <path d="M19.89 8.74l-.05-.03-4.82-2.78a.79.79 0 00-.79 0l-5.89 3.4V7a.07.07 0 01.03-.07l4.87-2.81a4.52 4.52 0 016.65 4.62z" fill="#fff"/>
+                        <path d="M9.52 13.4l-2.04-1.18a.07.07 0 01-.04-.06V6.54a4.52 4.52 0 017.34-3.51l-.04.02-4.83 2.78a.78.78 0 00-.39.68v6.89z" fill="#fff"/>
+                    </svg>
+                    ChatGPT
+                </div>
+                <!-- Perplexity -->
+                <div class="platform-node node-perplexity icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <rect width="24" height="24" rx="5" fill="#1B1F23"/>
+                        <path d="M12 4L6 8v4l6 4 6-4V8l-6-4z" stroke="#20B2AA" stroke-width="1.2" fill="none"/>
+                        <path d="M12 4v8M6 8l6 4 6-4M6 12l6 4 6-4" stroke="#20B2AA" stroke-width="1.2"/>
+                        <circle cx="12" cy="12" r="1.5" fill="#20B2AA"/>
+                    </svg>
+                    Perplexity
+                </div>
+                <!-- Claude -->
+                <div class="platform-node node-claude icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <rect width="24" height="24" rx="5" fill="#cc785c"/>
+                        <path d="M15.31 8.4l-4.6 7.2h-.02L9.35 12h1.48l.88 1.93L14.68 8.4h1.63v.01h-1z" fill="#fff"/>
+                        <path d="M12.41 7.2h1.34l-3.27 9.6h-1.34l3.27-9.6z" fill="#fff"/>
+                    </svg>
+                    Claude
+                </div>
+                <!-- Gemini -->
+                <div class="platform-node node-gemini icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <path d="M12 24c0-3.17-1.07-5.87-2.73-7.83A11.98 11.98 0 000 12c3.73 0 7.1-1.53 9.53-4 2.22-2.26 3.7-5.36 3.96-8.82A14.4 14.4 0 0014.47 4 11.98 11.98 0 0024 12c-3.73 0-7.1 1.53-9.53 4A13.04 13.04 0 0012 24z" fill="url(#gemini_grad)"/>
+                        <defs>
+                            <linearGradient id="gemini_grad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#4285F4"/><stop offset=".3" stop-color="#9B72CB"/>
+                                <stop offset=".6" stop-color="#D96570"/><stop offset="1" stop-color="#D96570"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    Gemini
+                </div>
+                <!-- Google AI (AI Overview) -->
+                <div class="platform-node node-googleai icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                        <path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.8 5.6 21.2 8 14 2 9.2h7.6L12 2z" fill="url(#gai_grad)"/>
+                        <defs>
+                            <linearGradient id="gai_grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#4285F4"/><stop offset=".5" stop-color="#34A853"/>
+                                <stop offset="1" stop-color="#FBBC05"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    Google AI
+                </div>
+            </div>
+
+            <svg class="connection-lines" viewBox="0 0 540 540" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;">
+                <line x1="270" y1="80" x2="270" y2="210" class="conn-line"/>
+                <line x1="420" y1="150" x2="320" y2="240" class="conn-line"/>
+                <line x1="420" y1="380" x2="320" y2="300" class="conn-line"/>
+                <line x1="270" y1="460" x2="270" y2="330" class="conn-line"/>
+                <line x1="120" y1="380" x2="220" y2="300" class="conn-line"/>
+                <line x1="120" y1="150" x2="220" y2="240" class="conn-line"/>
+            </svg>
+
+            <div class="astpe-engine">
+                <span class="engine-label">ASTPE</span>
+                <span class="engine-sublabel">Authority Search-to-<br>Pipeline Engine</span>
+            </div>
+
+            <!-- Down arrow from engine to metrics -->
+            <div class="astpe-arrow-down">
+                <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
+                    <path d="M12 0v32M4 26l8 8 8-8" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+                </svg>
+            </div>
+
+            <!-- Metrics row inside graphic -->
+            <div class="astpe-metrics-row">
+                <div class="astpe-metric-item">
+                    <div class="astpe-metric-icon icon-demos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <span class="astpe-metric-text">Demos</span>
+                </div>
+                <div class="astpe-metric-item">
+                    <div class="astpe-metric-icon icon-sqls">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <span class="astpe-metric-text">SQLs</span>
+                </div>
+                <div class="astpe-metric-item">
+                    <div class="astpe-metric-icon icon-trials">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                    </div>
+                    <span class="astpe-metric-text">Free Trials</span>
+                </div>
+                <div class="astpe-metric-item">
+                    <div class="astpe-metric-icon icon-revenue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    </div>
+                    <span class="astpe-metric-text">Revenue</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 3. LOGO BAR ===== -->
+<section class="logo-bar reveal">
+    <div class="container">
+        <p class="logo-bar-label">Trusted by B2B SaaS teams driving real pipeline</p>
+        <div class="logo-bar-grid">
+            <span class="client-logo">EmailData</span>
+            <span class="client-logo">InfluencerHQ</span>
+            <span class="client-logo">SaaSMetrics</span>
+            <span class="client-logo">PipelineIQ</span>
+            <span class="client-logo">GrowthStack</span>
+            <span class="client-logo">ContentForge</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 4. PROBLEMS ===== -->
+<section class="section problems" id="problems">
+    <div class="container">
+        <div class="problems-header reveal">
+            <div class="section-label">The Problem</div>
+            <h2>Your SEO Isn't Broken. It Was Never Built for Pipeline.</h2>
+            <p>Most B2B SaaS companies invest in SEO and get traffic reports their CFO can't spend. Sound familiar?</p>
+        </div>
+        <div class="problems-grid stagger-children">
+            <div class="problem-card reveal">
+                <div class="problem-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3>You rank. You don't convert.</h3>
+                <p>Your blog gets 50K visits a month. Your demo calendar? Empty. Traffic reports your CFO can't turn into revenue projections.</p>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M8 11h6"/></svg>
+                </div>
+                <h3>AI is eating your clicks.</h3>
+                <p>ChatGPT answers your prospects' questions without ever sending them to your site. You're invisible in the platforms that now drive decisions.</p>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                </div>
+                <h3>You built content, not authority.</h3>
+                <p>100 blog posts. Zero topical connections. No entity structure. Google sees a library with no catalog, and AI search ignores you completely.</p>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <h3>Your last agency sold you 2019 SEO.</h3>
+                <p>Backlinks and domain authority aren't enough anymore. The playbook changed. Semantic architecture and AI visibility are the new moat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 5. FRAMEWORK ===== -->
+<section class="section framework-section" id="framework">
+    <div class="framework-bg-glow"></div>
+    <div class="container">
+        <div class="framework-header reveal">
+            <div class="section-label">Our Framework</div>
+            <h2>The Authority Search-to-Pipeline Engine</h2>
+            <p>One integrated system. Four compounding phases. Built to turn every search, on every platform, into pipeline.</p>
+        </div>
+        <div class="framework-steps stagger-children">
+            <div class="framework-step reveal">
+                <div class="step-number">1</div>
+                <h3>Semantic Foundation</h3>
+                <p>We map your topics, entities, and buyer questions into a semantic architecture that search engines and AI platforms understand as authority.</p>
+            </div>
+            <div class="framework-step reveal">
+                <div class="step-number">2</div>
+                <h3>Pipeline-First Content</h3>
+                <p>Comparison pages, alternative pages, vs. pages. We build the BOFU content that captures buyers mid-decision, not browsers mid-scroll.</p>
+            </div>
+            <div class="framework-step reveal">
+                <div class="step-number">3</div>
+                <h3>AI Search Positioning</h3>
+                <p>We engineer your brand to be cited in ChatGPT, Perplexity, Gemini, and Google AI Overviews. Where your buyers are already searching.</p>
+            </div>
+            <div class="framework-step reveal">
+                <div class="step-number">4</div>
+                <h3>Compound Effect</h3>
+                <p>Every piece of content, every link, every citation strengthens the system. Month over month, your pipeline compounds while competitors plateau.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 6. CASE STUDY ===== -->
+<section class="section case-study-featured" id="case-study">
+    <div class="container">
+        <div class="framework-header reveal" style="text-align:center;max-width:700px;margin:0 auto 64px;">
+            <div class="section-label">Case Study</div>
+            <h2>From Zero to 312 Demos Per Month</h2>
+            <p>How we built a $1.2M pipeline for an email marketing SaaS in 12 months using the ASTPE framework.</p>
+        </div>
+        <div class="case-study-card-featured reveal-scale">
+            <div class="cs-content">
+                <h3 style="font-size:24px;margin-bottom:12px;">Email Marketing SaaS</h3>
+                <p style="color:var(--text-muted);margin-bottom:8px;">Series B &bull; 85 employees &bull; $12M ARR</p>
+                <p>This client had 100+ blog posts generating traffic but zero attributable pipeline. We rebuilt their entire content architecture using ASTPE, targeting comparison and alternative keywords with semantic entity optimization.</p>
+                <p style="margin-top:12px;">Within 90 days, demo bookings started climbing. By month 12, they were the most cited brand in their category across ChatGPT and Perplexity.</p>
+                <div class="cs-metrics stagger-children">
+                    <div class="cs-metric reveal"><div class="cs-metric-value">312</div><div class="cs-metric-label">Demos per month</div></div>
+                    <div class="cs-metric reveal"><div class="cs-metric-value">$1.2M</div><div class="cs-metric-label">Monthly pipeline</div></div>
+                    <div class="cs-metric reveal"><div class="cs-metric-value">4,200+</div><div class="cs-metric-label">AI citations</div></div>
+                    <div class="cs-metric reveal"><div class="cs-metric-value">600%</div><div class="cs-metric-label">Lead growth</div></div>
+                </div>
+            </div>
+            <div class="cs-visual">
+                <div class="cs-graph">
+                    <div class="cs-graph-title">Monthly Demo Bookings — 12-Month Growth</div>
+                    <div class="graph-bars" id="graphBars">
+                        <div class="graph-bar" style="height:4px" data-label="M1" data-target="5"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M2" data-target="8"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M3" data-target="14"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M4" data-target="22"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M5" data-target="30"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M6" data-target="38"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M7" data-target="48"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M8" data-target="56"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M9" data-target="68"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M10" data-target="78"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M11" data-target="88"></div>
+                        <div class="graph-bar" style="height:4px" data-label="M12" data-target="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 7. HOW IT WORKS ===== -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="hiw-header reveal">
+            <div class="section-label">How It Works</div>
+            <h2>From Diagnosis to Compound Growth</h2>
+            <p>A structured, repeatable process. No guesswork, no hope-based strategies.</p>
+        </div>
+        <div class="hiw-steps stagger-children">
+            <div class="hiw-step reveal">
+                <div class="hiw-step-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                </div>
+                <h3>Diagnose</h3>
+                <p>We audit your semantic gaps, content architecture, AI visibility, and pipeline leaks.</p>
+            </div>
+            <div class="hiw-step reveal">
+                <div class="hiw-step-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Architect</h3>
+                <p>We design your topical map, entity relationships, and BOFU content roadmap.</p>
+            </div>
+            <div class="hiw-step reveal">
+                <div class="hiw-step-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>Execute</h3>
+                <p>Content creation, technical optimization, link building, schema deployment.</p>
+            </div>
+            <div class="hiw-step reveal">
+                <div class="hiw-step-icon icon-hover-bounce">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+                </div>
+                <h3>Compound</h3>
+                <p>Authority deepens, AI citations grow, and pipeline compounds month over month.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 8. SERVICES ===== -->
+<section class="section services" id="services">
+    <div class="container">
+        <div class="services-header reveal">
+            <div class="section-label">The System</div>
+            <h2>One Engine. Six Components.</h2>
+            <p>This isn't a menu of services. It's an integrated system where every component amplifies the others.</p>
+        </div>
+        <div class="services-grid stagger-children">
+            <div class="service-card reveal">
+                <div class="service-icon icon-hover-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+                <h3>Semantic SEO Architecture</h3>
+                <p>Topical maps, pillar-cluster structures, and entity optimization that make search engines recognize you as the definitive authority.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon icon-hover-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
+                <h3>Pipeline-First Content</h3>
+                <p>BOFU pages engineered for buyers mid-decision. Comparison, alternative, and vs. pages that capture demos, not just pageviews.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon icon-hover-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+                <h3>AI Search Visibility</h3>
+                <p>Your brand cited in ChatGPT, Perplexity, Gemini, and Google AI Overviews. We engineer the signals that make AI recommend you.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon icon-hover-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+                <h3>Technical SEO & Entity Infrastructure</h3>
+                <p>Schema markup, site architecture, and internal linking built on entity logic. The invisible foundation that powers everything above.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon icon-hover-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></div>
+                <h3>Authority Link Building</h3>
+                <p>Strategic backlinks that reinforce topical authority. Not random links. Precision placements that compound your semantic position.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon icon-hover-bounce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                <h3>Pipeline Attribution Reporting</h3>
+                <p>We track demos, SQLs, and revenue. Not vanity metrics. Your CFO finally sees organic as a pipeline channel, not a cost center.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 9. RESULTS ===== -->
+<section class="section" id="results">
+    <div class="container">
+        <div class="results-header reveal">
+            <div class="section-label">Proven Results</div>
+            <h2>Numbers Your Board Will Care About</h2>
+            <p>Not traffic screenshots. Not keyword rankings. Pipeline and revenue from organic search.</p>
+        </div>
+        <div class="results-cards stagger-children">
+            <div class="result-card reveal">
+                <div class="result-card-label">Email Data SaaS</div>
+                <div class="result-card-value">$6M</div>
+                <div class="result-card-desc">Pipeline generated from organic search in 18 months</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-card-label">Influencer Marketing Platform</div>
+                <div class="result-card-value">$50M</div>
+                <div class="result-card-desc">Revenue attributed to SEO with 35% lower CAC</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-card-label">Email Marketing SaaS</div>
+                <div class="result-card-value">312</div>
+                <div class="result-card-desc">Demos per month from zero, with 600% lead growth</div>
+            </div>
+        </div>
+        <div class="testimonials-grid stagger-children">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="testimonial-text">"For the first time, our CEO includes organic in the board deck as a pipeline channel. B2B Mint didn't just get us rankings. They built a system that generates 40% of our qualified demos."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JK</div>
+                    <div><div class="testimonial-name">Jason Kim</div><div class="testimonial-role">VP Marketing, Email Marketing SaaS</div></div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <p class="testimonial-text">"We had 200 blog posts and zero pipeline. Hamid's team rebuilt everything with semantic architecture. Within 6 months, we were the #1 recommended tool in ChatGPT for our category."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SR</div>
+                    <div><div class="testimonial-name">Sarah Rodriguez</div><div class="testimonial-role">CEO, Influencer Marketing Platform</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 10. FIT SECTION ===== -->
+<section class="section fit-section" id="fit">
+    <div class="container">
+        <div class="fit-header reveal">
+            <div class="section-label">Right Fit?</div>
+            <h2>This Isn't for Everyone. And That's the Point.</h2>
+            <p>We work with a specific type of SaaS company because our system works best when the foundations are in place.</p>
+        </div>
+        <div class="fit-grid">
+            <div class="fit-card good reveal-left">
+                <div class="fit-card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                    We're a great fit if you:
+                </div>
+                <ul class="fit-list">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Have product-market fit and need scalable, predictable pipeline</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Want SEO that shows up in board meetings with revenue numbers</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Are ready to invest $3K+/month in compounding organic growth</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Understand search is changing and want to lead, not catch up</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Need a strategic partner, not someone who takes orders</li>
+                </ul>
+            </div>
+            <div class="fit-card bad reveal-right">
+                <div class="fit-card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                    We're not right if you:
+                </div>
+                <ul class="fit-list">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Are looking for cheap backlinks or keyword-stuffed blog posts</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Want overnight results without building real authority</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Just need "someone to do SEO" without caring about pipeline</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Aren't ready to invest in SEO as a growth channel</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Measure success in rankings instead of revenue</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 11. FOUNDER ===== -->
+<section class="section" id="founder">
+    <div class="container">
+        <div class="founder-card reveal-scale">
+            <div class="founder-image">H</div>
+            <div class="founder-content">
+                <div class="section-label">Meet the Founder</div>
+                <h2>Hamid</h2>
+                <p class="founder-title">Founder & SEO Strategist, B2B Mint</p>
+                <p>I started B2B Mint because I was tired of seeing SaaS founders burn money on SEO that delivers traffic reports nobody cares about.</p>
+                <p>After years of studying semantic SEO under Koray Tugberk Gubur and building pipeline systems for B2B SaaS companies, I built the ASTPE framework. It's the system I wish every SaaS company had access to: one that treats organic search as a pipeline channel, not a vanity metric.</p>
+                <p>We take on 4 clients per quarter. Not for exclusivity. Because real engine-building takes focus.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 12. FAQ ===== -->
+<section class="section faq" id="faq">
+    <div class="container">
+        <div class="faq-header reveal">
+            <div class="section-label">FAQ</div>
+            <h2>Common Questions</h2>
+        </div>
+        <div class="faq-list stagger-children">
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="toggleFaq(this)">How long before we see pipeline results?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Most clients see measurable pipeline impact within 90 days. The ASTPE system is designed to compound, so months 4-12 is where the growth curve steepens dramatically. Our email marketing SaaS client went from 0 to 312 demos/month within 12 months.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="toggleFaq(this)">What about AI killing SEO?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">AI isn't killing SEO. It's changing where and how people search. Our ASTPE framework builds visibility across all search surfaces: Google, ChatGPT, Perplexity, Gemini, and AI Overviews. We've earned 4,200+ AI citations for our clients.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="toggleFaq(this)">How is this different from other SEO agencies?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Most agencies deliver traffic reports. We deliver pipeline metrics. Our ASTPE framework treats organic as a revenue channel. We track demos, SQLs, and revenue, not just rankings and traffic. And we build visibility across AI search platforms.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="toggleFaq(this)">What does "starting at $3K/month" include?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Every engagement includes the full ASTPE system: semantic architecture, pipeline-first content, AI search positioning, technical SEO, authority link building, and pipeline attribution reporting. The investment scales based on content volume and competitive landscape.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="toggleFaq(this)">Will I just get traffic reports?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">No. Our reporting tracks demos booked, SQLs generated, pipeline value, and revenue attribution. We also track AI citation growth across ChatGPT, Perplexity, and Google AI. You'll see the metrics your CFO actually cares about.</div></div>
+            </div>
+            <div class="faq-item reveal">
+                <div class="faq-question" onclick="toggleFaq(this)">Is this only for large SaaS companies?<span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We work with Series A through Series C B2B SaaS companies, typically $2M-$50M ARR with 20-200 employees. The key qualifier isn't company size. It's readiness to invest in a compounding growth system.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 13. FINAL CTA ===== -->
+<section class="section final-cta" id="cta">
+    <div class="cta-glow"></div>
+    <div class="container">
+        <div class="section-label reveal" style="display:inline-flex;">Get Started</div>
+        <h2 class="reveal" style="transition-delay:0.1s;">Ready to Turn Search Into Your<br><span style="color:var(--accent-light);">#1 Pipeline Channel?</span></h2>
+        <p class="reveal" style="transition-delay:0.2s;">Book a strategy call. We'll diagnose your semantic gaps, AI visibility, and pipeline leaks in 30 minutes.</p>
+        <div class="cta-scarcity reveal" style="transition-delay:0.3s;">We take on 4 new clients per quarter. Because real engine-building takes focus.</div>
+        <div class="hero-ctas reveal" style="transition-delay:0.4s;">
+            <a href="#" class="btn btn-primary" style="font-size:18px;padding:18px 36px;">
+                Book a Strategy Call
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="btn btn-ghost">
+                Get the 90-Day SEO Playbook
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 14. FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo"><div class="nav-logo-icon">M</div>B2B Mint</a>
+                <p>We build pipeline, not traffic. Semantic SEO, AI visibility, and pipeline generation for B2B SaaS companies.</p>
+                <div class="footer-newsletter">
+                    <form class="newsletter-form" onsubmit="return false;">
+                        <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div><h4>Company</h4><ul class="footer-links"><li><a href="#">About</a></li><li><a href="#">Case Studies</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+            <div><h4>Services</h4><ul class="footer-links"><li><a href="#">SaaS SEO</a></li><li><a href="#">AI Visibility</a></li><li><a href="#">Content Strategy</a></li><li><a href="#">Technical SEO</a></li></ul></div>
+            <div><h4>Resources</h4><ul class="footer-links"><li><a href="#">90-Day SEO Playbook</a></li><li><a href="#">ASTPE Framework</a></li><li><a href="#">SEO ROI Calculator</a></li><li><a href="#">Free Audit</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 B2B Mint. All rights reserved.</span>
+            <span><a href="#" style="color:var(--text-muted);">Privacy</a> &middot; <a href="#" style="color:var(--text-muted);">Terms</a></span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ===== Scroll Progress Bar =====
+const scrollProgress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    scrollProgress.style.width = (winScroll / height * 100) + '%';
+});
+
+// ===== Navbar scroll effect =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== Mobile menu =====
+document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('active');
+});
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('active'); }
+
+// ===== FAQ Accordion =====
+function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
+}
+
+// ===== Intersection Observer for scroll animations =====
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    revealObserver.observe(el);
+});
+
+// ===== Graph bar animation =====
+const graphObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.graph-bar').forEach((bar, i) => {
+                setTimeout(() => { bar.style.height = bar.dataset.target + '%'; }, i * 80);
+            });
+        }
+    });
+}, { threshold: 0.3 });
+const graphBars = document.getElementById('graphBars');
+if (graphBars) graphObserver.observe(graphBars);
+
+// ===== Counter animation =====
+function animateCounter(el, target, prefix = '', suffix = '') {
+    const duration = 2000;
+    const startTime = performance.now();
+    function update(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = prefix + Math.floor(target * eased).toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+}
+
+let heroAnimated = false;
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !heroAnimated) {
+            heroAnimated = true;
+            entry.target.querySelectorAll('.hero-proof-number').forEach(item => {
+                const text = item.dataset.value;
+                if (text.includes('$6M')) animateCounter(item, 6, '$', 'M+');
+                else if (text.includes('312')) animateCounter(item, 312);
+                else if (text.includes('4,200')) animateCounter(item, 4200, '', '+');
+            });
+        }
+    });
+}, { threshold: 0.3 });
+const heroSection = document.querySelector('.hero');
+if (heroSection) heroObserver.observe(heroSection);
+
+// ===== Smooth scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+});
+
+// ===== Animated icon draw-on-scroll =====
+document.querySelectorAll('.anim-icon').forEach(icon => {
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) icon.classList.add('animated');
+        });
+    }, { threshold: 0.5 });
+    obs.observe(icon);
+});
+
+// ===== Tilt effect on cards =====
+document.querySelectorAll('.service-card, .framework-step, .result-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `translateY(-6px) perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+// ===== Problem card left-bar animation =====
+document.querySelectorAll('.problem-card').forEach(card => {
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) card.classList.add('visible');
+        });
+    }, { threshold: 0.3 });
+    obs.observe(card);
+});
+</script>
+
+</body>
+</html>
